@@ -9,21 +9,39 @@
     <br>
     <div class="caja">
         <div class="caja1">
-          <textarea readonly class="txtt">
+          <textarea id="txtt" readonly  class="txtt">
           </textarea>
         </div>
         <div class="caja2">
-          <input class="txt" placeholder="NroDeCaja"> 
-          <input class="txt" placeholder="Cliente">
-          <input class="txt" placeholder="NroDeOrden">
-          <input class="txt" placeholder="Cantidad">
-          <input class="txt" placeholder="Articulo">
-          <input type="button" class="btn" value="Registrar">
+          <input class="txt" id="txt1"  placeholder="NroDeCaja"> 
+          <input class="txt" id="txt2" placeholder="Cliente" list="cli">
+          <input class="txt" id="txt3" placeholder="NroDeOrden">
+          <input class="txt" id="txt4"  placeholder="Cantidad">
+          <input class="txt" id="txt5" placeholder="Articulo" list="art">
+          <input type="button" class="btn" onclick="reg()" value="Registrar">
           <input type="button" class="btn" value="Eliminar">
           <input type="button" class="btn" value="Insertar">
           <input type="button" class="btn" value="CrearLista">
 
         </div>
     </div>
+    <datalist id="art">
+      <option value="hebillas"></option>
+      <option value="navajas"></option>
+      <option value="estribos"></option>
+      <option value="BLT"></option>
+      <option value="dijes"></option>
+      <option value="llaveros"></option>
+      <option value="conchos"></option>
+    </datalist>
+    <datalist id="cli">
+      <option value="shrd"></option>
+      <option value="shea"></option>
+      <option value="cowboys"></option>
+      <option value="spirit"></option>
+      <option value="TMW"></option>
+      <option value="ride"></option>
+      <option value="titos"></option>
+    </datalist>
   </body>
 </html>

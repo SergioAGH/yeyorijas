@@ -71,7 +71,7 @@
      inset -10px -10px 10px #aaa,
      inset 10px 10px 10px #444;
      padding: 5px;
-     vertical-align: baseline;
+     /*vertical-align: baseline;*/
      outline: none;
      resize: none;
 }
