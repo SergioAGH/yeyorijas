@@ -7,7 +7,7 @@ function reg(){
     const ar = document.getElementById("txt5").value;
     const ob = "\n"+nc+" "+cl+" "+no+" "+cd+" "+ar;
     let data = {
-        nc:nc,cl:cl,no:no,cd:cd,ar:ar,ob:ob
+        nc:nc,cl:cl,no:no,cd:cd,ar:ar
     }
     document.getElementById("txtt").value="";
     agregar(data);
