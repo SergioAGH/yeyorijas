@@ -1,17 +1,23 @@
 
+
+
 function reg(){
     const nc = document.getElementById("txt1").value;
     const cl = document.getElementById("txt2").value;
     const no = document.getElementById("txt3").value;
     const cd = document.getElementById("txt4").value;
     const ar = document.getElementById("txt5").value;
-    const ob = "\n"+nc+" "+cl+" "+no+" "+cd+" "+ar;
+    const fecha = new Date().toLocaleDateString();
     let data = {
-        nc:nc,cl:cl,no:no,cd:cd,ar:ar
+        fc:fecha,nc:nc,cl:cl,no:no,cd:cd,ar:ar
     }
     document.getElementById("txtt").value="";
-    agregar(data);
-
+    const cam = Object.values(data).includes("");
+    if (cam == false) {
+        agregar(data);
+    } else {
+        alert("CAMPOS BASIOS");
+    }
     document.getElementById("txt1").value="";
     document.getElementById("txt2").value="";
     document.getElementById("txt3").value="";
@@ -29,7 +35,7 @@ conexion.onupgradeneeded = (e)=>{
     db = e.target.result;
     console.log("baseCreada", db);
     const coleccionObjetos = db.createObjectStore("reg",{keyPath: "nc"});
-    coleccionObjetos.createIndex("buscar","no",{unique:false});
+    coleccionObjetos.createIndex("buscar","fc",{unique:false});
   
 } 
 conexion.onerror = (error)=>{
@@ -57,10 +63,10 @@ const consultar = ()=>{
     const conexion = colecionObjetos.openCursor()
     
     conexion.onsuccess = (e)=>{
-        const cursor = e.target.result
+      const cursor = e.target.result
         if(cursor){
-            document.getElementById("txtt").value+="\n"+cursor.value.nc+" "+cursor.value.cl+" "+
-            cursor.value.no+" "+cursor.value.cd+" "+cursor.value.ar; 
+            document.getElementById("txtt").value+=cursor.value.fc+" "+cursor.value.nc+" "+cursor.value.cl+" "+
+            cursor.value.no+" "+cursor.value.cd+" "+cursor.value.ar+"\n"; 
             cursor.continue();
         }else{
             console.log("no hay tareas en la lista")
